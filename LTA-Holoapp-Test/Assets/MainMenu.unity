@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 17104227196630740, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: HandTracking
+      value: TodoList
       objectReference: {fileID: 0}
     - target: {fileID: 131490875475075100, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -245,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 958555039328662094, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: iconQuadTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 0771cd1b5e4131e45afe250cd1713737, type: 3}
+      objectReference: {fileID: 2800000, guid: 0bee624b4074e5445929e56287795085, type: 3}
     - target: {fileID: 1333129552543361702, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_Name
       value: Main Menu
@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457904604369537415, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_text
-      value: Hand Tracking
+      value: Todo List
       objectReference: {fileID: 0}
     - target: {fileID: 7457904604369537415, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_textAlignment
@@ -684,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7457904604990593143, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7773655248262073540, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: iconQuadTexture
@@ -971,6 +971,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1279942585396694634, guid: 96d27fe6fab8a3245ac58a83efbe3a70, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57960004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279942585396694634, guid: 96d27fe6fab8a3245ac58a83efbe3a70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25980002
+      objectReference: {fileID: 0}
     - target: {fileID: 4944742623540133923, guid: 96d27fe6fab8a3245ac58a83efbe3a70, type: 3}
       propertyPath: m_RootOrder
       value: 1

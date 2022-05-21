@@ -31,66 +31,24 @@ MonoBehaviour:
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 7e54e36c44f826c438c95da79f8de638, type: 3}
   contentScenes:
-  - Name: Dynamic365
-    Path: Assets/Dynamic365/Dynamic365.unity
-    Included: 0
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
-  - Name: ARMesh
-    Path: Assets/ARMesh/ARMesh.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: 492adffdda217df44bb7c89aeac9734c, type: 3}
-  - Name: ARPlane
-    Path: Assets/ARPlane/ARPlane.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: a03cb651e64e63244a11e488a7d6a0c4, type: 3}
-  - Name: ARRaycast
-    Path: Assets/ARRaycast/ARRaycast.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: 30a1758791960b04cad8d42543d9c0ce, type: 3}
-  - Name: HandTracking
-    Path: Assets/HandTracking/HandTracking.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: a2b89a9fcf5e9c147a86b4df466b5ce8, type: 3}
-  - Name: Interaction
-    Path: Assets/Interaction/Interaction.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: d9d8efe7d14278b43a5e055ae8d09539, type: 3}
-  - Name: LocatableCamera
-    Path: Assets/LocatableCamera/LocatableCamera.unity
-    Included: 1
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: 4f00530c71c2b6b4797880042dc9a6db, type: 3}
   - Name: MainMenu
     Path: Assets/MainMenu.unity
     Included: 1
     BuildIndex: 1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 4c855881d5f542f4496c9908a0442fc1, type: 3}
-  - Name: GrabAndThrow
-    Path: Assets/GrabAndThrow/GrabAndThrow.unity
+  - Name: TodoList
+    Path: Assets/TodoList/TodoList.unity
     Included: 1
-    BuildIndex: -1
+    BuildIndex: 3
     Tag: Untagged
-    Asset: {fileID: 102900000, guid: 6ddc6bc1ed9bfe448b3d21e918092bf9, type: 3}
-  - Name: Rendering
-    Path: Assets/Rendering/Rendering.unity
+    Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
+  - Name: Dynamic365
+    Path: Assets/Dynamic365/Dynamic365.unity
     Included: 1
-    BuildIndex: -1
+    BuildIndex: 11
     Tag: Untagged
-    Asset: {fileID: 102900000, guid: b94bc81c3b156544195b0461670498a7, type: 3}
+    Asset: {fileID: 102900000, guid: ecda1dafa3376ea4c9c70056a64f0bad, type: 3}
   permittedLightingSceneComponentTypes:
   - reference: UnityEngine.Transform, UnityEngine.CoreModule
   - reference: UnityEngine.GameObject, UnityEngine.CoreModule
