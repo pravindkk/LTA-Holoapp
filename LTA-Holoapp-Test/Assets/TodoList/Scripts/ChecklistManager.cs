@@ -64,10 +64,13 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             item.transform.SetParent(content);
             ChecklistObject itemObject = item.GetComponent<ChecklistObject>();
             int index = loadIndex;
+            Debug.Log(itemObject.index);
             if (!loading)
                 index = checklistObjects.Count;
 
+            
             itemObject.SetObjectInfo(name, index);
+            itemObject.GetComponentInChildren<Text>().text = name;
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
             itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate

@@ -6,11 +6,13 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
     public class ToggleUtilities : MonoBehaviour
     {
-        public void Toggle(GameObject utilities)
+        public void ToToggle()
         {
-           // Transform t = utils as Transform;
-           // GameObject utilities = t.gameObject;
-            utilities.SetActive(!utilities.activeSelf);
+            GameObject utils = GameObject.FindWithTag("Util");
+            for (int i = 0; i < utils.transform.childCount; i++)
+            {
+                utils.transform.GetChild(i).gameObject.SetActive(!utils.transform.GetChild(i).gameObject.activeSelf);
+            }
         }
     }
 }
