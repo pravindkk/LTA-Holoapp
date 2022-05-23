@@ -64,13 +64,15 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             item.transform.SetParent(content);
             ChecklistObject itemObject = item.GetComponent<ChecklistObject>();
             int index = loadIndex;
-            Debug.Log(itemObject.index);
+            //Debug.Log(itemObject.index);
             if (!loading)
                 index = checklistObjects.Count;
 
             
             itemObject.SetObjectInfo(name, index);
             itemObject.GetComponentInChildren<Text>().text = name;
+            itemObject.transform.localScale = new Vector3(1, 1, 1);
+            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, 0);
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
             itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
@@ -116,7 +118,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 {
                     if (content.Trim() != "")
                     {
-                        Debug.Log(content);
+                        //Debug.Log(content);
                         ChecklistItem temp = JsonUtility.FromJson<ChecklistItem>(content);
                         CreateCheckListItems(temp.objName, temp.index, true);
                     }
