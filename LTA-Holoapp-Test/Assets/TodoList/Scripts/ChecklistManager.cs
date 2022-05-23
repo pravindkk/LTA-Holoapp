@@ -36,7 +36,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         {
             filePath = Application.persistentDataPath + "/checklist.txt";
             LoadJSONData();
-            addInputFields = addPanel.GetComponentsInChildren<InputField>();
+            //addInputFields = addPanel.GetComponentsInChildren<InputField>();
 
             createButton.onClick.AddListener(delegate
             {

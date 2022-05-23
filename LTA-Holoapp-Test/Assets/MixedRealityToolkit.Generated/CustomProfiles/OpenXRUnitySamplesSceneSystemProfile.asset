@@ -40,15 +40,21 @@ MonoBehaviour:
   - Name: TodoList
     Path: Assets/TodoList/TodoList.unity
     Included: 1
-    BuildIndex: 3
+    BuildIndex: 2
     Tag: Untagged
     Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
   - Name: Dynamic365
     Path: Assets/Dynamic365/Dynamic365.unity
     Included: 1
-    BuildIndex: 11
+    BuildIndex: 3
     Tag: Untagged
     Asset: {fileID: 102900000, guid: ecda1dafa3376ea4c9c70056a64f0bad, type: 3}
+  - Name: Settings
+    Path: Assets/Settings/Settings.unity
+    Included: 1
+    BuildIndex: 4
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: f0de83fdc37255e46bae191b3dbd0705, type: 3}
   permittedLightingSceneComponentTypes:
   - reference: UnityEngine.Transform, UnityEngine.CoreModule
   - reference: UnityEngine.GameObject, UnityEngine.CoreModule

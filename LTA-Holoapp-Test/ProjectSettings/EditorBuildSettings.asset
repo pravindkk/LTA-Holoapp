@@ -12,35 +12,14 @@ EditorBuildSettings:
     path: Assets/MainMenu.unity
     guid: 4c855881d5f542f4496c9908a0442fc1
   - enabled: 1
-    path: 
-    guid: a2b89a9fcf5e9c147a86b4df466b5ce8
-  - enabled: 1
     path: Assets/TodoList/TodoList.unity
     guid: d355505f2c946d643931d88832a0a445
   - enabled: 1
-    path: 
-    guid: d9d8efe7d14278b43a5e055ae8d09539
-  - enabled: 1
-    path: 
-    guid: 4f00530c71c2b6b4797880042dc9a6db
-  - enabled: 1
-    path: 
-    guid: 30a1758791960b04cad8d42543d9c0ce
-  - enabled: 1
-    path: 
-    guid: a03cb651e64e63244a11e488a7d6a0c4
-  - enabled: 1
-    path: 
-    guid: 492adffdda217df44bb7c89aeac9734c
-  - enabled: 1
-    path: 
-    guid: b94bc81c3b156544195b0461670498a7
-  - enabled: 1
-    path: 
-    guid: 6ddc6bc1ed9bfe448b3d21e918092bf9
-  - enabled: 1
     path: Assets/Dynamic365/Dynamic365.unity
     guid: ecda1dafa3376ea4c9c70056a64f0bad
+  - enabled: 1
+    path: Assets/Settings/Settings.unity
+    guid: f0de83fdc37255e46bae191b3dbd0705
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c0dc29e9d338cf4e867f224b63433c0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 261b7d8b2b130de41b17046d08508624, type: 2}
