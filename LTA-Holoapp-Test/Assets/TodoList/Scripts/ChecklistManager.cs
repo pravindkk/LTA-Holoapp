@@ -12,6 +12,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public GameObject addPanel;
         public Button createButton;
         public GameObject checklistItemPrefab;
+        public string filename;
 
         string filePath;
 
@@ -34,7 +35,12 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
         private void Start()
         {
-            filePath = Application.persistentDataPath + "/checklist.txt";
+            
+        }
+
+        public void Creation()
+        {
+            filePath = Application.persistentDataPath + "/checklists/" + filename;
             LoadJSONData();
             //addInputFields = addPanel.GetComponentsInChildren<InputField>();
 
@@ -55,6 +61,11 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                     addPanel.SetActive(true);
                     break;
             }
+        }
+
+        public void SetFileName(string filename)
+        {
+            this.filename = filename;
         }
 
         public void CreateCheckListItems(string name, int loadIndex = 0, bool loading = false)
