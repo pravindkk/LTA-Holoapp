@@ -100,7 +100,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         void CheckItem(ChecklistObject item)
         {
             checklistObjects.Remove(item);
-            SaveJSONData();
+            //SaveJSONData();
             Destroy(item.gameObject);
         }
 
