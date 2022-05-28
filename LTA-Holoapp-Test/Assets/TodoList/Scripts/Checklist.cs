@@ -28,6 +28,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             CreateMenu();
         }
 
+        /// <summary>
+        /// Creates a menu filled with the preconfigured checklists
+        /// </summary>
         public void CreateMenu()
         {
             for (int i=0; i<allFiles.Count; i++)
@@ -38,7 +41,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 item.transform.SetParent(menu);
                 item.transform.localScale = new Vector3(1, 1, 1);
                 item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, 0);
-                item.GetComponentInChildren<Text>().text = filename;
+                item.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                string showFile = filename.Remove(filename.Length - 4);
+                item.GetComponentInChildren<Text>().text = showFile;
                 item.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     OpenTodo(filename);
@@ -46,6 +51,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             }
         }
 
+        /// <summary>
+        /// Opens the speific checklist clicked by utilising the ChecklistManager
+        /// </summary>
         void OpenTodo(string filename)
         {
             GameObject todoList = Instantiate(todoListPrefab);
@@ -60,6 +68,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             });
         }
 
+        /// <summary>
+        /// Closes the speciic checklist opened
+        /// </summary>
         void CloseTodo(GameObject item)
         {
             Debug.Log("hello");
