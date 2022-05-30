@@ -14,6 +14,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public GameObject checklistItemPrefab;
         public string filename;
 
+
         string filePath;
 
         private List<ChecklistObject> checklistObjects = new List<ChecklistObject>();

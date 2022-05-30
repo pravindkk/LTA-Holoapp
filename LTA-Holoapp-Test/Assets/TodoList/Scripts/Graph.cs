@@ -6,13 +6,21 @@ using System.Net.Http;
 using System;
 using UnityEngine.Serialization;
 using Newtonsoft.Json;
-
+using System.Net;
+using System.IO;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System.IO.Compression;
+using UnityEditor;
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
     
+    
     public class Graph : MonoBehaviour
     {
+        public static string ACCESS_TOKEN = null;
+
         [Serializable]
         public class AzureADToken
         {
@@ -36,12 +44,14 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
 
         // Start is called before the first frame update
-        void Start()
+        async void Start()
         {
-            Auth();
+            await Auth();
+            
+            
         }
 
-        async void Auth()
+        async Task Auth()
         {
             var clientId = "fc474e3f-1a2c-4358-9ef3-e8df4ea90376";
             var secret = "Lw68Q~uQnbY6hn5t646JxfgxAkELI4Z2a~vyqcqx";
@@ -64,20 +74,21 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             var response = await httpClient.PostAsync(requestUrl, requestBody);
 
             response.EnsureSuccessStatusCode();
-            Debug.Log(response.EnsureSuccessStatusCode());
+            //Debug.Log(response.EnsureSuccessStatusCode());
 
             var responseContent = await response.Content.ReadAsStringAsync();
-            Debug.Log(responseContent);
+            //Debug.Log(responseContent);
             AzureADToken aadToken = JsonUtility.FromJson<AzureADToken>(responseContent);
-            string toReturn = aadToken.access_token;
-            Debug.Log(toReturn);
-            GetURL(toReturn);
+            string accessToken = aadToken.access_token;
+            //Debug.Log(toReturn);
+            ACCESS_TOKEN = accessToken;
+            await GetURL(accessToken);
 
 
 
         }
 
-        async void GetURL(string accessToken)
+        async Task GetURL(string accessToken)
         {
             string url = "https://graph.microsoft.com/v1.0/users/ltaholo@ltaholotestoutlook.onmicrosoft.com/drive/root:/checklists.zip:?select=content.downloadUrl";
             var client = new HttpClient();
@@ -88,13 +99,69 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             var responseMessage = await client.GetAsync(url);
             responseMessage.EnsureSuccessStatusCode();
-            Debug.Log(responseMessage.EnsureSuccessStatusCode());
+            //Debug.Log(responseMessage.EnsureSuccessStatusCode());
 
             var responseContent = await responseMessage.Content.ReadAsStringAsync();
-            Debug.Log(responseContent);
+            //Debug.Log(responseContent);
             Rootobject aadToken = JsonConvert.DeserializeObject<Rootobject>(responseContent);
-            string toReturn = aadToken.microsoftgraphdownloadUrl;
-            Debug.Log(toReturn);
+            string downloadUrl = aadToken.microsoftgraphdownloadUrl;
+            Debug.Log(downloadUrl);
+            await DownloadZip(downloadUrl);
+        }
+
+        async Task DownloadZip(string downloadUrl)
+        {
+            string filePath = Application.persistentDataPath + "/checklists.zip";
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            WebClient client = new WebClient();
+            Uri uri = new Uri(downloadUrl);
+
+            // Specify a DownloadFileCompleted handler here...
+            client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback2);
+            // Specify a progress notification handler.
+            client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback4);
+
+            client.DownloadFileAsync(uri, filePath);
+            
+        }
+
+        private static void DownloadProgressCallback4(object sender, DownloadProgressChangedEventArgs e)
+        {
+            // Displays the operation identifier, and the transfer progress.
+            Debug.Log((string)e.UserState + "downloaded" + e.BytesReceived + "of" + e.TotalBytesToReceive+ "bytes." + e.ProgressPercentage+" % complete...");
+        }
+
+        private static async void DownloadFileCallback2(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                Debug.Log("File download cancelled.");
+            }
+
+            if (e.Error != null)
+            {
+                Debug.Log(e.Error.ToString());
+            }
+
+            else
+            {
+                await ExtractFile();
+            }
+        }
+
+        static async Task ExtractFile()
+        {
+            string folderPath = Application.persistentDataPath + "/checklists";
+            if (Directory.Exists(folderPath))
+            {
+                FileUtil.DeleteFileOrDirectory(folderPath);
+                //Directory.Delete(folderPath);
+            }
+            ZipFile.ExtractToDirectory(Application.persistentDataPath + "/checklists.zip", Application.persistentDataPath);
+            Debug.Log("File extracted"); 
         }
 
 

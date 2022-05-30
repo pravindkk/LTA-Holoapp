@@ -62,21 +62,16 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             todoListManager.SetFileName(filename);
             todoListManager.Creation();
             ChecklistManager temp = todoListManager;
-            todoList.GetComponentInChildren<Button>().onClick.AddListener(delegate
-            {
-                CloseTodo(todoList);
-            });
-        }
+            //todoList.transform.Find("ButtonExit").GetComponentInChildren<Button>().onClick.AddListener(delegate
+            //{
+            //    CloseTodo(todoList);
+            //});
 
-        /// <summary>
-        /// Closes the speciic checklist opened
-        /// </summary>
-        void CloseTodo(GameObject item)
-        {
-            Debug.Log("hello");
-            Destroy(item);
+            //todoList.GetComponentInChildren<Button>().onClick.AddListener(delegate
+            //{
+            //    CloseTodo(todoList);
+            //});
         }
-
 
     }
 }
