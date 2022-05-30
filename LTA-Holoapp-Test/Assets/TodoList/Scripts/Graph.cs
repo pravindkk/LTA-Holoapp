@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using System.Net.Http;
 using System;
 using UnityEngine.Serialization;
+using Newtonsoft.Json;
 
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
@@ -23,9 +24,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         [Serializable]
         public class Rootobject
         {
-            [FormerlySerializedAs("@odata.context")]
+            [JsonProperty("@odata.context")]
             public string odatacontext;
-            [FormerlySerializedAs("@microsoft.graph.downloadUrl")]
+            [JsonProperty("@microsoft.graph.downloadUrl")]
             public string microsoftgraphdownloadUrl;
         }
 
@@ -91,7 +92,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             var responseContent = await responseMessage.Content.ReadAsStringAsync();
             Debug.Log(responseContent);
-            Rootobject aadToken = JsonUtility.FromJson<Rootobject>(responseContent);
+            Rootobject aadToken = JsonConvert.DeserializeObject<Rootobject>(responseContent);
             string toReturn = aadToken.microsoftgraphdownloadUrl;
             Debug.Log(toReturn);
         }
