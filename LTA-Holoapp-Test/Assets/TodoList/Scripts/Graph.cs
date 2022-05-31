@@ -13,6 +13,7 @@ using System.ComponentModel;
 using System.IO.Compression;
 using UnityEditor;
 
+
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
     
@@ -32,9 +33,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         [Serializable]
         public class Rootobject
         {
-            [JsonProperty("@odata.context")]
             public string odatacontext;
-            [JsonProperty("@microsoft.graph.downloadUrl")]
             public string microsoftgraphdownloadUrl;
         }
 
@@ -81,6 +80,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             AzureADToken aadToken = JsonUtility.FromJson<AzureADToken>(responseContent);
             string accessToken = aadToken.access_token;
             //Debug.Log(toReturn);
+            Debug.Log("Received access token");
             ACCESS_TOKEN = accessToken;
             await GetURL(accessToken);
 
@@ -102,8 +102,11 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             //Debug.Log(responseMessage.EnsureSuccessStatusCode());
 
             var responseContent = await responseMessage.Content.ReadAsStringAsync();
-            //Debug.Log(responseContent);
-            Rootobject aadToken = JsonConvert.DeserializeObject<Rootobject>(responseContent);
+            Debug.Log(responseContent);
+            responseContent = responseContent.Replace("@microsoft.graph.downloadUrl", "microsoftgraphdownloadUrl");
+            responseContent = responseContent.Replace("@odata.context", "odatacontext");
+            Debug.Log(responseContent);
+            Rootobject aadToken = JsonUtility.FromJson<Rootobject>(responseContent);
             string downloadUrl = aadToken.microsoftgraphdownloadUrl;
             Debug.Log(downloadUrl);
             await DownloadZip(downloadUrl);
@@ -112,6 +115,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         async Task DownloadZip(string downloadUrl)
         {
             string filePath = Application.persistentDataPath + "/checklists.zip";
+            Debug.Log("Downloading to" + filePath);
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
@@ -148,19 +152,26 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             else
             {
+                Debug.Log("Downloaded zip file");
                 await ExtractFile();
             }
         }
 
         static async Task ExtractFile()
         {
-            string folderPath = Application.persistentDataPath + "/checklists";
+            
+            string folderPath = @Application.persistentDataPath + "/checklists";
+            string newFolderPath = @Application.persistentDataPath;
+            string zipFilePath = @Application.persistentDataPath + "/checklists.zip";
             if (Directory.Exists(folderPath))
             {
-                FileUtil.DeleteFileOrDirectory(folderPath);
+                Directory.Delete(folderPath, true);
+                //FileUtil.DeleteFileOrDirectory(folderPath);
                 //Directory.Delete(folderPath);
             }
-            ZipFile.ExtractToDirectory(Application.persistentDataPath + "/checklists.zip", Application.persistentDataPath);
+            Debug.Log("Extracting");
+            
+            ZipFile.ExtractToDirectory(zipFilePath, folderPath);
             Debug.Log("File extracted"); 
         }
 

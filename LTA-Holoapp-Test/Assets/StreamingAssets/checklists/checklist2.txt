@@ -1,0 +1,3 @@
+{"objName":"item1","toggle":false,"index":0}
+{"objName":"item2","toggle":false,"index":1}
+{"objName":"item3","toggle":false,"index":2}

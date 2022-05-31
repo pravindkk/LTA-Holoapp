@@ -19,7 +19,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         // Start is called before the first frame update
         void Start()
         {
-            filePath = Application.persistentDataPath + "/checklists";
+            filePath = Application.persistentDataPath + "/checklists/checklists";
             string[] files = System.IO.Directory.GetFiles(filePath);
             foreach (string file in files)
             {

@@ -1505,9 +1505,9 @@ MonoBehaviour:
     m_Left: 10
     m_Right: 10
     m_Top: 10
-    m_Bottom: 0
+    m_Bottom: 5
   m_ChildAlignment: 0
-  m_Spacing: 20
+  m_Spacing: 33
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -1557,7 +1557,7 @@ RectTransform:
   m_GameObject: {fileID: 2507727477542726174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.88138795, z: 1}
   m_Children:
   - {fileID: 2436564681260574708}
   - {fileID: 2438462651860963914}
@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_Content: {fileID: 2437911328578651190}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -5583,7 +5583,7 @@ MonoBehaviour:
   content: {fileID: 2437911328578651190}
   addPanel: {fileID: 7909175047879855273}
   createButton: {fileID: 7909175047955743768}
-  checklistItemPrefab: {fileID: 7780076749438639115, guid: 144a259e3d6084f4e938a49086a0918a, type: 3}
+  checklistItemPrefab: {fileID: 3788240017048496808, guid: 6cfbc7bbb625ffe4486384f93cf9b47f, type: 3}
   filename: 
 --- !u!1 &7909175047506980870
 GameObject:
@@ -5775,7 +5775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
+  m_AnchoredPosition: {x: 0, y: -2.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7909175047955744230

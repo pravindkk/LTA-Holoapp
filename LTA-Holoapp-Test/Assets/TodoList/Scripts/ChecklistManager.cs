@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using TMPro;
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
@@ -47,7 +48,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         /// </summary>
         public void Creation()
         {
-            filePath = Application.persistentDataPath + "/checklists/" + filename;
+            filePath = Application.persistentDataPath + "/checklists/checklists/" + filename;
             LoadJSONData();
             //addInputFields = addPanel.GetComponentsInChildren<InputField>();
 
@@ -131,7 +132,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             
             itemObject.SetObjectInfo(name, toggle, index);
-            itemObject.GetComponentInChildren<Text>().text = name;
+            itemObject.GetComponentInChildren<TextMeshProUGUI>().text = name;
             itemObject.transform.localScale = new Vector3(1, 1, 1);
             itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, 0);
             checklistObjects.Add(itemObject);

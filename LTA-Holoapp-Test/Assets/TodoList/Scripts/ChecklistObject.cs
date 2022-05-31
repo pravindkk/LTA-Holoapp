@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+//using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
@@ -11,11 +14,12 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public bool toggle;
         public int index;
 
-        private Text itemText;
+
+        private TextMeshProUGUI itemText;
 
         private void Start()
         {
-            itemText = GetComponentInChildren<Text>();
+            itemText = GetComponentInChildren<TextMeshProUGUI>();
             itemText.text = objName;
         }
 
