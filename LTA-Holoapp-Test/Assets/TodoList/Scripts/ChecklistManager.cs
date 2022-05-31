@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using Microsoft.MixedReality.Toolkit.UI;
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
@@ -14,6 +15,9 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public Button createButton;
         public GameObject checklistItemPrefab;
         public string filename;
+
+        public Interactable saveButton;
+        public TextMeshPro title;
 
 
         string filePath;
@@ -51,11 +55,15 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             filePath = Application.persistentDataPath + "/checklists/checklists/" + filename;
             LoadJSONData();
             //addInputFields = addPanel.GetComponentsInChildren<InputField>();
-
-            createButton.onClick.AddListener(delegate
+            saveButton.OnClick.AddListener(delegate
             {
                 SaveAsNewJson();
             });
+            title.text = filename.Remove(filename.Length - 4);
+            //saveButton.onClick.AddListener(delegate
+            //{
+            //    SaveAsNewJson();
+            //});
         }
 
         //void SwitchMode(int mode)
@@ -81,6 +89,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
         void SaveAsNewJson()
         {
+            Debug.Log("start save");
             string showFile = filename.Remove(filename.Length - 4);
 
             System.DateTime theTime = System.DateTime.Now;
