@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Settings/Settings.unity
     guid: f0de83fdc37255e46bae191b3dbd0705
+  - enabled: 1
+    path: Assets/DocumentViewer/DocumentViewer.unity
+    guid: 3be4bbe2ba503594cb9b40fe9da47393
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c0dc29e9d338cf4e867f224b63433c0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 261b7d8b2b130de41b17046d08508624, type: 2}

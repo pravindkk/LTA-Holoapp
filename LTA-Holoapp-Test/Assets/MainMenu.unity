@@ -161,11 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 131490875995694845, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 131490876616161037, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_text
-      value: AR Planes
+      value: Document Viewer
       objectReference: {fileID: 0}
     - target: {fileID: 131490876616161037, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_textAlignment
@@ -673,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7390458442456827998, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ARPlane
+      value: DocumentViewer
       objectReference: {fileID: 0}
     - target: {fileID: 7457904603363729046, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321748792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6485e54dd951e5542a4ac005043ce84e, type: 3}
   m_Name: 
