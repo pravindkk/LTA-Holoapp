@@ -196,13 +196,21 @@ PrefabInstance:
       value: 0.044
       objectReference: {fileID: 0}
     - target: {fileID: 569958636886365182, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
+      propertyPath: iconSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 54813e71671475445b3fd608477735b3, type: 2}
+    - target: {fileID: 569958636886365182, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: iconStyle
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 569958636886365182, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 21300022, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
     - target: {fileID: 569958636886365182, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: iconQuadTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 4494cfaf424cdde49895b91e2b559258, type: 3}
+      objectReference: {fileID: 2800000, guid: 39fafc3c69e22f2469985684a22bb45f, type: 3}
     - target: {fileID: 763741472937285476, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -225,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 763741472937285476, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Interaction
+      value: QRScanner
       objectReference: {fileID: 0}
     - target: {fileID: 831844951614958985, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 865697366318530621, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d7776e47f36f995458a92021b99f44d5, type: 3}
+      objectReference: {fileID: 21300022, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
     - target: {fileID: 865697366318530621, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -641,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980050995866978412, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7031837918350673002, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_LocalScale.x
@@ -717,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915729865695630699, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7915729866667665463, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_text
@@ -745,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915729867288197575, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8118008111284429413, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -814,7 +822,6 @@ PrefabInstance:
     - {fileID: 5684875915651602479, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
     - {fileID: 1630636061323851081, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
     - {fileID: 6475768286833687438, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
-    - {fileID: 569958636886365182, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6dfc5f0a5fe04f94ab15177720f4bf05, type: 3}
 --- !u!4 &287630113 stripped
 Transform:
@@ -1437,7 +1444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1321748793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,7 +1452,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321748792}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6485e54dd951e5542a4ac005043ce84e, type: 3}
   m_Name: 

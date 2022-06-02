@@ -23,6 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/DocumentViewer/DocumentViewer.unity
     guid: 3be4bbe2ba503594cb9b40fe9da47393
+  - enabled: 1
+    path: Assets/QRScanner/MyQRCode.unity
+    guid: a56d3870441a9a248bb17457a5c12c28
+  - enabled: 1
+    path: Assets/QRScanner/QRScanner.unity
+    guid: 5a958b8fd405cfa408db94862dbec8b2
   m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: cf8034addb49cdc4ca5d00a54586183c, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c0dc29e9d338cf4e867f224b63433c0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 261b7d8b2b130de41b17046d08508624, type: 2}

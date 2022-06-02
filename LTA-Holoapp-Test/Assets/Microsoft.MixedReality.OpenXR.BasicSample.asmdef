@@ -11,7 +11,8 @@
         "Unity.XR.Management",
         "Unity.XR.OpenXR",
         "UnityEngine.SpatialTracking",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Unity.XR.WindowsMixedReality"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

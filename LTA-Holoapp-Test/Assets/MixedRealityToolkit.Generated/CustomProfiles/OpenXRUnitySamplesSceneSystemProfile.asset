@@ -61,6 +61,12 @@ MonoBehaviour:
     BuildIndex: 5
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 3be4bbe2ba503594cb9b40fe9da47393, type: 3}
+  - Name: QRScanner
+    Path: Assets/QRScanner/QRScanner.unity
+    Included: 1
+    BuildIndex: 7
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: 5a958b8fd405cfa408db94862dbec8b2, type: 3}
   permittedLightingSceneComponentTypes:
   - reference: UnityEngine.Transform, UnityEngine.CoreModule
   - reference: UnityEngine.GameObject, UnityEngine.CoreModule
