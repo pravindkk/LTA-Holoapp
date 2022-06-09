@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using Microsoft.MixedReality.Toolkit.UI;
+using TMPro;
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
@@ -43,11 +45,15 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, 0);
                 item.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 string showFile = filename.Remove(filename.Length - 4);
-                item.GetComponentInChildren<Text>().text = showFile;
-                item.GetComponent<Button>().onClick.AddListener(delegate
+                item.GetComponentInChildren<TextMeshPro>().text = showFile;
+                item.GetComponentInChildren<Interactable>().OnClick.AddListener(delegate
                 {
                     OpenTodo(filename);
                 });
+                //item.GetComponent<Button>().onClick.AddListener(delegate
+                //{
+                //    OpenTodo(filename);
+                //});
             }
         }
 
