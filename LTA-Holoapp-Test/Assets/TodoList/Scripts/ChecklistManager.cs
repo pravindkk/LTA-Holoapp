@@ -146,6 +146,11 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, 0);
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
+            //itemObject.GetComponent<Interactable>().IsToggled = toggle;
+            //itemObject.GetComponent<Interactable>().OnClick.AddListener(delegate
+            //{
+            //    CheckItem(temp);
+            //});
             itemObject.GetComponent<Toggle>().isOn = toggle;
             itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
             {

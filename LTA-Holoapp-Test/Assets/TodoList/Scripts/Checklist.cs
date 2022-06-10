@@ -42,7 +42,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 //Debug.Log(allFiles[i]);
                 item.transform.SetParent(menu);
                 item.transform.localScale = new Vector3(1, 1, 1);
-                item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, 0);
+                item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, -12);
                 item.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 string showFile = filename.Remove(filename.Length - 4);
                 item.GetComponentInChildren<TextMeshPro>().text = showFile;
