@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 
 #if WINDOWS_UWP
@@ -11,6 +12,7 @@ using Windows.System;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 using Windows.Storage.Pickers;
+using System.Diagnostics;
 #endif
 
 namespace Microsoft.MixedReality.OpenXR.BasicSample
@@ -36,26 +38,30 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         }
         public async void PressedButton()
         {
-            var uri = new Uri(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Operation-Checklist.pdf");
-            Debug.Log(uri);
+            //string path;
+            //var uri = new Uri(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Operation-Checklist.pdf");
+            //Debug.Log(uri);
 #if !UNITY_EDITOR && UNITY_WSA_10_0
 
                     UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
                     {
+                        //string path = KnownFolders.DocumentsLibrary.Path + "/Operation-Checklist.pdf";
+                        //var newUri = new Uri(path);
+
+                        //await Launcher.LaunchUriAsync(newUri);
+                        ////System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\Operation-Checklist.pdf");
+
                         
+                        //System.Diagnostics.Debug.WriteLine(path);
+                        var filepicker = new FileOpenPicker();
+                        filepicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                        
+                        filepicker.FileTypeFilter.Add(".pdf");
 
-                        await Launcher.LaunchUriAsync(uri);
+                        var file = await filepicker.PickSingleFileAsync();
+                        await Launcher.LaunchFileAsync(file);
 
-
-
-                        //var filepicker = new FileOpenPicker();
-                        //filepicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-                        //filepicker.FileTypeFilter.Add(".pdf");
-
-                        //var file = await filepicker.PickSingleFileAsync();
-                        //await Launcher.LaunchFileAsync(file);
-
-                        Debug.Log("works");
+                        //Debug.Log("works");
                     }, false);
 
 
@@ -64,6 +70,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             UnityEngine.WSA.Launcher.LaunchUri(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Operation-Checklist.pdf", false);
 
 #endif
+            
         }
     }
 }

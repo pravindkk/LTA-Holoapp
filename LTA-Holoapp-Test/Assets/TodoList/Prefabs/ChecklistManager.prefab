@@ -6717,7 +6717,7 @@ MonoBehaviour:
   content: {fileID: 2437911328578651190}
   addPanel: {fileID: 7909175047879855273}
   createButton: {fileID: 7909175047955743768}
-  checklistItemPrefab: {fileID: 3788240017048496808, guid: 6cfbc7bbb625ffe4486384f93cf9b47f, type: 3}
+  checklistItemPrefab: {fileID: 76268874529605461, guid: 6cfbc7bbb625ffe4486384f93cf9b47f, type: 3}
   filename: 
   saveButton: {fileID: 1092209686363722440}
   title: {fileID: 467223307978228798}

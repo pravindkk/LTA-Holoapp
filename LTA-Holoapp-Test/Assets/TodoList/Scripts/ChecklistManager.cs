@@ -143,19 +143,19 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             itemObject.SetObjectInfo(name, toggle, index);
             itemObject.GetComponentInChildren<TextMeshProUGUI>().text = name;
             itemObject.transform.localScale = new Vector3(1, 1, 1);
-            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, 0);
+            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, -12);
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
-            //itemObject.GetComponent<Interactable>().IsToggled = toggle;
-            //itemObject.GetComponent<Interactable>().OnClick.AddListener(delegate
-            //{
-            //    CheckItem(temp);
-            //});
-            itemObject.GetComponent<Toggle>().isOn = toggle;
-            itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
+            itemObject.GetComponentInChildren<Interactable>().IsToggled = toggle;
+            itemObject.GetComponentInChildren<Interactable>().OnClick.AddListener(delegate
             {
                 CheckItem(temp);
             });
+            //itemObject.GetComponent<Toggle>().isOn = toggle;
+            //itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
+            //{
+            //    CheckItem(temp);
+            //});
             if (!loading)
             {
                 SaveJSONData();
