@@ -13,7 +13,8 @@
         "UnityEngine.SpatialTracking",
         "Unity.TextMeshPro",
         "Unity.XR.WindowsMixedReality",
-        "Microsoft.Windows.MixedReality.DotNetWinRT.Editor"
+        "Microsoft.Windows.MixedReality.DotNetWinRT.Editor",
+        "Microsoft.MixedReality.Toolkit.Tools"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

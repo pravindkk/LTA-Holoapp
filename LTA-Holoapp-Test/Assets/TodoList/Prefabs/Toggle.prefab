@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   routingTarget: {fileID: 819740375690637597}
-  InteractableOnClick: 1
+  InteractableOnClick: 2
 --- !u!1 &819740376067386940
 GameObject:
   m_ObjectHideFlags: 0

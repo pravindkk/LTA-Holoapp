@@ -6,6 +6,16 @@ using System.IO;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.UI;
 
+#if WINDOWS_UWP
+using System;
+using Windows.Storage;
+using Windows.System;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
+using Windows.Storage.Pickers;
+using System.Diagnostics;
+#endif
+
 namespace Microsoft.MixedReality.OpenXR.BasicSample
 {
     public class ChecklistManager : MonoBehaviour
@@ -60,24 +70,8 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 SaveAsNewJson();
             });
             title.text = filename.Remove(filename.Length - 4);
-            //saveButton.onClick.AddListener(delegate
-            //{
-            //    SaveAsNewJson();
-            //});
         }
 
-        //void SwitchMode(int mode)
-        //{
-        //    switch (mode)
-        //    {
-        //        case 0:
-        //            addPanel.SetActive(false);
-        //            break;
-        //        case 1:
-        //            addPanel.SetActive(true);
-        //            break;
-        //    }
-        //}
 
         /// <summary>
         /// The filename can be set by the Checklist class
@@ -87,22 +81,12 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             this.filename = filename;
         }   
 
-        void SaveAsNewJson()
+        async void SaveAsNewJson()
         {
-            Debug.Log("start save");
+            UnityEngine.Debug.Log("start save");
+
+
             string showFile = filename.Remove(filename.Length - 4);
-
-            System.DateTime theTime = System.DateTime.Now;
-            string date = (theTime.Minute + theTime.Second + theTime.Day + theTime.Month).ToString();
-
-            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists";
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            string newFilePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists/" + showFile + date + ".txt";
-            //string newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + ".txt";
 
             string contents = "";
 
@@ -110,18 +94,41 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             {
                 ChecklistItem temp = new ChecklistItem(checklistObjects[i].objName, checklistObjects[i].toggle, checklistObjects[i].index);
                 contents += JsonUtility.ToJson(temp) + '\n';
-            }   
-
-            if (File.Exists(newFilePath))
-            {
-
-                newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + Random.Range(0, 10.0f).ToString() +  ".txt";
-                
             }
-            System.IO.File.WriteAllText(newFilePath, contents);
-            Debug.Log("saved as new json");
+
+            //System.DateTime theTime = System.DateTime.Now;
+            //string date = (theTime.Minute + theTime.Second + theTime.Day + theTime.Month).ToString();
+
+            //string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists";
+            //if (!Directory.Exists(folderPath))
+            //{
+            //    Directory.CreateDirectory(folderPath);
+            //}
+
+            //string newFilePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists/" + showFile + date + ".txt";
+            //string newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + ".txt";
+
+
+
+            //if (File.Exists(newFilePath))
+            //{
+
+            //    newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + Random.Range(0, 10.0f).ToString() +  ".txt";
+
+            //}
+            //System.IO.File.WriteAllText(newFilePath, contents);
+
             //ChecklistObject temp = new ChecklistObject();
             // System.IO.File.WriteAllText(newFilePath, contents);
+
+#if !UNITY_EDITOR && UNITY_WSA_10_0
+            StorageFolder myDocuments = KnownFolders.DocumentsLibrary;
+            StorageFolder savedChecklists = await myDocuments.CreateFolderAsync("saved_checklists", CreationCollisionOption.OpenIfExists);
+            StorageFile newFile = await savedChecklists.CreateFileAsync(showFile,CreationCollisionOption.GenerateUniqueName);
+            await FileIO.WriteTextAsync(newFile, contents);
+
+#endif
+            UnityEngine.Debug.Log("saved as new json");
 
         }
 
@@ -151,11 +158,6 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             {
                 CheckItem(temp);
             });
-            //itemObject.GetComponent<Toggle>().isOn = toggle;
-            //itemObject.GetComponent<Toggle>().onValueChanged.AddListener(delegate
-            //{
-            //    CheckItem(temp);
-            //});
             if (!loading)
             {
                 SaveJSONData();
@@ -186,7 +188,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 //Debug.Log(temp);
                 //Debug.Log(contents);
             }
-            Debug.Log(filePath);
+            UnityEngine.Debug.Log(filePath);
             //ChecklistObject temp = new ChecklistObject();
             System.IO.File.WriteAllText(filePath, contents);
         }
@@ -214,7 +216,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             }
             else
             {
-                Debug.Log("No File!!");
+                UnityEngine.Debug.Log("No File!!");
             }
 
         }
