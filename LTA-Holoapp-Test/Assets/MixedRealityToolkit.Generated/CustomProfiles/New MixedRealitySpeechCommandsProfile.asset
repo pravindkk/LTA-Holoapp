@@ -58,3 +58,31 @@ MonoBehaviour:
       id: 1
       description: Select
       axisConstraint: 2
+  - localizationKey: 
+    keyword: Settings
+    keyCode: 54
+    action:
+      id: 1
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: QR Scanner
+    keyCode: 55
+    action:
+      id: 1
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: Dynamic 365
+    keyCode: 56
+    action:
+      id: 1
+      description: Select
+      axisConstraint: 2
+  - localizationKey: 
+    keyword: Todo List
+    keyCode: 57
+    action:
+      id: 1
+      description: Select
+      axisConstraint: 2

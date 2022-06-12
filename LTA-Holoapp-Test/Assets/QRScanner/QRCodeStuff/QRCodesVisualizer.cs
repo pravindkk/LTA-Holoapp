@@ -111,11 +111,11 @@ namespace QRTracking
                         qrCodeObject.GetComponent<SpatialGraphCoordinateSystem>().Id = action.qrCode.SpatialGraphNodeId;
                         qrCodeObject.GetComponent<QRCode>().qrCode = action.qrCode;
                         //LaunchUri.Launch(action.qrCode.Data);
-#if UNITY_WSA
-                        UnityEngine.WSA.Launcher.LaunchUri(action.qrCode.Data, false);
-#else
-            Application.OpenURL(action.qrCode.Data);
-#endif
+//#if UNITY_WSA
+//                        UnityEngine.WSA.Launcher.LaunchUri(action.qrCode.Data, false);
+//#else
+//            Application.OpenURL(action.qrCode.Data);
+//#endif
                         LatestQRCodeDetails.text = action.qrCode.Data; //updating to show in our QRCodePanel the data of latest QR code scanned
                         qrCodesObjectsList.Add(action.qrCode.Id, qrCodeObject); //QRcode added
                     }
@@ -124,6 +124,7 @@ namespace QRTracking
                         if (!qrCodesObjectsList.ContainsKey(action.qrCode.Id))
                         {
                             GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                            
                             qrCodeObject.GetComponent<SpatialGraphCoordinateSystem>().Id = action.qrCode.SpatialGraphNodeId;
                             qrCodeObject.GetComponent<QRCode>().qrCode = action.qrCode;
                             qrCodesObjectsList.Add(action.qrCode.Id, qrCodeObject);

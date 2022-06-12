@@ -96,31 +96,6 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                 contents += JsonUtility.ToJson(temp) + '\n';
             }
 
-            //System.DateTime theTime = System.DateTime.Now;
-            //string date = (theTime.Minute + theTime.Second + theTime.Day + theTime.Month).ToString();
-
-            //string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists";
-            //if (!Directory.Exists(folderPath))
-            //{
-            //    Directory.CreateDirectory(folderPath);
-            //}
-
-            //string newFilePath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop) + "/saved_checklists/" + showFile + date + ".txt";
-            //string newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + ".txt";
-
-
-
-            //if (File.Exists(newFilePath))
-            //{
-
-            //    newFilePath = Application.persistentDataPath + "/saved_checklists/" + showFile + date + Random.Range(0, 10.0f).ToString() +  ".txt";
-
-            //}
-            //System.IO.File.WriteAllText(newFilePath, contents);
-
-            //ChecklistObject temp = new ChecklistObject();
-            // System.IO.File.WriteAllText(newFilePath, contents);
-
 #if !UNITY_EDITOR && UNITY_WSA_10_0
             StorageFolder myDocuments = KnownFolders.DocumentsLibrary;
             StorageFolder savedChecklists = await myDocuments.CreateFolderAsync("saved_checklists", CreationCollisionOption.OpenIfExists);
@@ -150,7 +125,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             itemObject.SetObjectInfo(name, toggle, index);
             itemObject.GetComponentInChildren<TextMeshProUGUI>().text = name;
             itemObject.transform.localScale = new Vector3(1, 1, 1);
-            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, -12);
+            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, -6);
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
             itemObject.GetComponentInChildren<Interactable>().IsToggled = toggle;
