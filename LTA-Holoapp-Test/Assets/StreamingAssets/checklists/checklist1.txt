@@ -1,3 +1,0 @@
-{"objName":"orange","toggle":false,"index":0}
-{"objName":"apple","toggle":false,"index":1}
-{"objName":"pear","toggle":false,"index":2}
