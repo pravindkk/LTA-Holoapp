@@ -37,36 +37,36 @@ MonoBehaviour:
     BuildIndex: -1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 4c855881d5f542f4496c9908a0442fc1, type: 3}
-  - Name: TodoList
-    Path: Assets/TodoList/TodoList.unity
-    Included: 0
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
-  - Name: Dynamic365
-    Path: Assets/Dynamic365/Dynamic365.unity
-    Included: 0
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: ecda1dafa3376ea4c9c70056a64f0bad, type: 3}
-  - Name: Settings
-    Path: Assets/Settings/Settings.unity
-    Included: 0
-    BuildIndex: -1
-    Tag: Untagged
-    Asset: {fileID: 102900000, guid: f0de83fdc37255e46bae191b3dbd0705, type: 3}
   - Name: DocumentViewer
     Path: Assets/DocumentViewer/DocumentViewer.unity
     Included: 0
     BuildIndex: -1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 3be4bbe2ba503594cb9b40fe9da47393, type: 3}
+  - Name: Dynamic365
+    Path: Assets/Dynamic365/Dynamic365.unity
+    Included: 0
+    BuildIndex: -1
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: ecda1dafa3376ea4c9c70056a64f0bad, type: 3}
   - Name: QRScanner
     Path: Assets/QRScanner/QRScanner.unity
     Included: 0
     BuildIndex: -1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: 5a958b8fd405cfa408db94862dbec8b2, type: 3}
+  - Name: Settings
+    Path: Assets/Settings/Settings.unity
+    Included: 0
+    BuildIndex: -1
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: f0de83fdc37255e46bae191b3dbd0705, type: 3}
+  - Name: TodoList
+    Path: Assets/TodoList/TodoList.unity
+    Included: 0
+    BuildIndex: -1
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
   permittedLightingSceneComponentTypes:
   - reference: UnityEngine.Transform, UnityEngine.CoreModule
   - reference: UnityEngine.GameObject, UnityEngine.CoreModule

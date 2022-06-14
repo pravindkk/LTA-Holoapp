@@ -102,13 +102,13 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             //Debug.Log(responseMessage.EnsureSuccessStatusCode());
 
             var responseContent = await responseMessage.Content.ReadAsStringAsync();
-            Debug.Log(responseContent);
+            //Debug.Log(responseContent);
             responseContent = responseContent.Replace("@microsoft.graph.downloadUrl", "microsoftgraphdownloadUrl");
             responseContent = responseContent.Replace("@odata.context", "odatacontext");
-            Debug.Log(responseContent);
+            //Debug.Log(responseContent);
             Rootobject aadToken = JsonUtility.FromJson<Rootobject>(responseContent);
             string downloadUrl = aadToken.microsoftgraphdownloadUrl;
-            Debug.Log(downloadUrl);
+            //Debug.Log(downloadUrl);
             await DownloadZip(downloadUrl);
         }
 

@@ -21,13 +21,13 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
     public class ChecklistManager : MonoBehaviour
     {
         public Transform content;
-        public GameObject addPanel;
-        public Button createButton;
         public GameObject checklistItemPrefab;
         public string filename;
 
         public Interactable saveButton;
         public TextMeshPro title;
+
+        private float yCoord = 0;
 
 
         string filePath;
@@ -90,7 +90,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             string contents = "";
 
-            for (int i = 0; i < checklistObjects.Count; i++)
+            for (int i = 0; i < checklistObjects.Count-1; i++)
             {
                 ChecklistItem temp = new ChecklistItem(checklistObjects[i].objName, checklistObjects[i].toggle, checklistObjects[i].index);
                 contents += JsonUtility.ToJson(temp) + '\n';
@@ -110,7 +110,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         /// <summary>
         /// Creates new checklist line items with the ChecklistObject class
         /// </summary>
-        public void CreateCheckListItems(string name, bool toggle, int loadIndex = 0, bool loading = false)
+        public void CreateCheckListItems(string name, bool toggle, int loadIndex = 0, bool loading = false, bool last = false)
         {
             GameObject item = Instantiate(checklistItemPrefab);
 
@@ -123,16 +123,23 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
 
             
             itemObject.SetObjectInfo(name, toggle, index);
-            itemObject.GetComponentInChildren<TextMeshProUGUI>().text = name;
-            itemObject.transform.localScale = new Vector3(1, 1, 1);
-            itemObject.transform.localPosition = new Vector3(itemObject.transform.localPosition.x, itemObject.transform.localPosition.y, -6);
+            itemObject.GetComponentInChildren<TextMeshPro>().text = name;
+            itemObject.transform.localScale = new Vector3(0.3762138f, 0.398381f, 1);
+            //float localY = (float)(itemObject.transform.localPosition.y - yCoord * 0.03);
+            //Debug.Log(localY);
+            itemObject.transform.localPosition = new Vector3(0.01f, -0.009999983f - yCoord*0.06f, 0);
+            yCoord++;
             checklistObjects.Add(itemObject);
             ChecklistObject temp = itemObject;
-            itemObject.GetComponentInChildren<Interactable>().IsToggled = toggle;
-            itemObject.GetComponentInChildren<Interactable>().OnClick.AddListener(delegate
+            itemObject.GetComponent<Interactable>().IsToggled = toggle;
+            itemObject.GetComponent<Interactable>().OnClick.AddListener(delegate
             {
                 CheckItem(temp);
             });
+            if (last == true)
+            {
+                item.SetActive(false);
+            }
             if (!loading)
             {
                 SaveJSONData();
@@ -184,10 +191,12 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
                     {
                         //Debug.Log(content);
                         ChecklistItem temp = JsonUtility.FromJson<ChecklistItem>(content);
-                        CreateCheckListItems(temp.objName, temp.toggle, temp.index, true);
+                        CreateCheckListItems(temp.objName, temp.toggle, temp.index, true, false);
                     }
 
                 }
+                CreateCheckListItems("", false, 0, true, true);
+                
             }
             else
             {

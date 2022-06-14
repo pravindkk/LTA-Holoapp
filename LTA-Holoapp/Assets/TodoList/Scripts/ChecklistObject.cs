@@ -15,12 +15,12 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public int index;
 
 
-        private TextMeshProUGUI itemText;
+        private TextMeshPro itemText;
 
         private void Start()
         {
-            itemText = GetComponentInChildren<TextMeshProUGUI>();
-            itemText.text = objName;
+            itemText = GetComponentInChildren<TextMeshPro>();
+            //itemText.text = objName;
         }
 
         /// <summary>
