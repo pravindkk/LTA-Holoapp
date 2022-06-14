@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if WINDOWS_UWP
+#if ENABLE_WINMD_SUPPORT
 using Windows.Perception.Spatial;
+using Microsoft.MixedReality.OpenXR;
 #endif
 using Microsoft.MixedReality.Toolkit.Utilities;
 
@@ -10,7 +11,7 @@ namespace QRTracking
 {
     public class SpatialGraphCoordinateSystem : MonoBehaviour
     {
-#if WINDOWS_UWP
+#if ENABLE_WINMD_SUPPORT
         private SpatialCoordinateSystem CoordinateSystem = null;
 #endif
         private System.Guid id;
@@ -24,7 +25,7 @@ namespace QRTracking
             set
             {
                 id = value;
-#if WINDOWS_UWP
+#if ENABLE_WINMD_SUPPORT
                 CoordinateSystem = Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview.CreateCoordinateSystemForNode(id);
                 if (CoordinateSystem == null)
                 {
@@ -41,7 +42,7 @@ namespace QRTracking
         // Use this for initialization
         void Start()
         {
-#if WINDOWS_UWP
+#if ENABLE_WINMD_SUPPORT
             if (CoordinateSystem == null)
             {
                 CoordinateSystem = Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview.CreateCoordinateSystemForNode(id);
@@ -56,7 +57,7 @@ namespace QRTracking
         private void UpdateLocation()
         {
             {
-#if WINDOWS_UWP
+#if ENABLE_WINMD_SUPPORT
                 if (CoordinateSystem == null)
                 {
                     CoordinateSystem = Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview.CreateCoordinateSystemForNode(id);
@@ -71,9 +72,11 @@ namespace QRTracking
                 {
                     Quaternion rotation = Quaternion.identity;
                     Vector3 translation = new Vector3(0.0f, 0.0f, 0.0f);
+
+                    SpatialCoordinateSystem rootSpatialCoordinateSystem = PerceptionInterop.GetSceneCoordinateSystem(UnityEngine.Pose.identity) as SpatialCoordinateSystem;
                     
-                    System.IntPtr rootCoordnateSystemPtr = UnityEngine.XR.WindowsMR.WindowsMREnvironment.OriginSpatialCoordinateSystem;
-                    SpatialCoordinateSystem rootSpatialCoordinateSystem = (SpatialCoordinateSystem)System.Runtime.InteropServices.Marshal.GetObjectForIUnknown(rootCoordnateSystemPtr);
+                    //System.IntPtr rootCoordnateSystemPtr = UnityEngine.XR.WindowsMR.WindowsMREnvironment.OriginSpatialCoordinateSystem;
+                    //SpatialCoordinateSystem rootSpatialCoordinateSystem = (SpatialCoordinateSystem)System.Runtime.InteropServices.Marshal.GetObjectForIUnknown(rootCoordnateSystemPtr);
                     //SpatialCoordinateSystem rootSpatialCoordinateSystem = (SpatialCoordinateSystem)System.Runtime.
                     //InteropServices.Marshal.GetObjectForIUnknown(UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr());
 
