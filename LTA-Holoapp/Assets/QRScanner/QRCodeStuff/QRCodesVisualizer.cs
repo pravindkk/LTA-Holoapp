@@ -7,6 +7,12 @@ using UnityEngine;
 using Microsoft.MixedReality.QR;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.Examples.Demos;
+using Microsoft.MixedReality.Toolkit.UI;
+
+#if ENABLE_WINMD_SUPPORT
+using Windows.System;
+using System;
+#endif
 
 namespace QRTracking
 {
@@ -98,6 +104,21 @@ namespace QRTracking
             }
         }
 
+        private async void OpenLink(string url)
+        {
+#if ENABLE_WINMD_SUPPORT
+            //var uri = new System.Uri(url);
+
+            //var options = new Windows.System.LauncherOptions();
+            //options.TreatAsUntrusted = true;
+
+            //var success = await Windows.System.Launcher.LaunchUriAsync(uri, options);
+
+
+            UnityEngine.WSA.Launcher.LaunchUri(url, true);
+#endif
+        }
+
         private void HandleEvents()
         {
             lock (pendingActions)
@@ -110,12 +131,16 @@ namespace QRTracking
                         GameObject qrCodeObject = Instantiate(qrCodePrefab, new Vector3(0, 0, 0), Quaternion.identity);
                         qrCodeObject.GetComponent<SpatialGraphCoordinateSystem>().Id = action.qrCode.SpatialGraphNodeId;
                         qrCodeObject.GetComponent<QRCode>().qrCode = action.qrCode;
+                        qrCodeObject.GetComponentInChildren<Interactable>().OnClick.AddListener(delegate
+                        {
+                            OpenLink(action.qrCode.Data);
+                        });
                         //LaunchUri.Launch(action.qrCode.Data);
-//#if UNITY_WSA
-//                        UnityEngine.WSA.Launcher.LaunchUri(action.qrCode.Data, false);
-//#else
-//            Application.OpenURL(action.qrCode.Data);
-//#endif
+                        //#if UNITY_WSA
+                        //                        UnityEngine.WSA.Launcher.LaunchUri(action.qrCode.Data, false);
+                        //#else
+                        //            Application.OpenURL(action.qrCode.Data);
+                        //#endif
                         LatestQRCodeDetails.text = action.qrCode.Data; //updating to show in our QRCodePanel the data of latest QR code scanned
                         qrCodesObjectsList.Add(action.qrCode.Id, qrCodeObject); //QRcode added
                     }

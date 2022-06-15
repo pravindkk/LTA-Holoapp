@@ -57,7 +57,7 @@ namespace QRTracking
             QRNodeID.text = "NodeId:" + qrCode.SpatialGraphNodeId.ToString();
             QRText.text = CodeText;
 
-            if (System.Uri.TryCreate(CodeText, System.UriKind.Absolute,out uriResult))
+            if (System.Uri.TryCreate(CodeText, System.UriKind.Absolute, out uriResult))
             {
                 validURI = true;
                 QRText.color = Color.blue;
@@ -67,7 +67,7 @@ namespace QRTracking
             QRSize.text = "Size:" + qrCode.PhysicalSideLength.ToString("F04") + "m";
             QRTimeStamp.text = "Time:" + qrCode.LastDetectedTime.ToString("MM/dd/yyyy HH:mm:ss.fff");
             QRTimeStamp.color = Color.yellow;
-            Debug.Log("Id= " + qrCode.Id + "NodeId= " + qrCode.SpatialGraphNodeId + " PhysicalSize = " + PhysicalSize + " TimeStamp = " + qrCode.SystemRelativeLastDetectedTime.Ticks + " QRVersion = " + qrCode.Version + " QRData = " + CodeText);
+            //Debug.Log("Id= " + qrCode.Id + "NodeId= " + qrCode.SpatialGraphNodeId + " PhysicalSize = " + PhysicalSize + " TimeStamp = " + qrCode.SystemRelativeLastDetectedTime.Ticks + " QRVersion = " + qrCode.Version + " QRData = " + CodeText);
         }
 
         void UpdatePropertiesDisplay()

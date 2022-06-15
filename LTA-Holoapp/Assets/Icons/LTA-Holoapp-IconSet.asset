@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb41c8335e2ca96449f3991db5fa5702, type: 3}
-  m_Name: MainMenuIconSet
+  m_Name: LTA-Holoapp-IconSet
   m_EditorClassIdentifier: 
   quadIcons:
   - {fileID: 2800000, guid: 26edcc76205c9e34bb119413c8813659, type: 3}
@@ -18,6 +18,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 880674c733a554043a868260ae2e4921, type: 3}
   - {fileID: 2800000, guid: 39fafc3c69e22f2469985684a22bb45f, type: 3}
   - {fileID: 2800000, guid: ee0c0004e39344e49892b381b6d09069, type: 3}
+  - {fileID: 2800000, guid: 1092324ec2f56d74a9c6b0f61f2ab639, type: 3}
+  - {fileID: 2800000, guid: 6cecb42cd4fc622469a9f9999abad3b5, type: 3}
+  - {fileID: 2800000, guid: 74f76b828ede72045a99984760451696, type: 3}
+  - {fileID: 2800000, guid: a74e7fe8e7d955049948b0d096817286, type: 3}
+  - {fileID: 2800000, guid: cd85718e0f02fe243b98ad1a4bd3272b, type: 3}
   spriteIcons: []
   charIconFont: {fileID: 0}
   charIcons:
