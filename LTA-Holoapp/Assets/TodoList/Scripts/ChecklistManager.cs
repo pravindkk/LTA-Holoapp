@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using System.IO;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.UI;
+using System;
+using System.Net.Http;
+using System.Text;
 
 #if WINDOWS_UWP
 using System;
@@ -79,31 +82,77 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
         public void SetFileName(string filename)
         {
             this.filename = filename;
-        }   
-
-        async void SaveAsNewJson()
+        }
+        
+        private string GetContents()
         {
-            UnityEngine.Debug.Log("start save");
-
-
-            string showFile = filename.Remove(filename.Length - 4);
-
             string contents = "";
 
-            for (int i = 0; i < checklistObjects.Count-1; i++)
+            for (int i = 0; i < checklistObjects.Count - 1; i++)
             {
                 ChecklistItem temp = new ChecklistItem(checklistObjects[i].objName, checklistObjects[i].toggle, checklistObjects[i].index);
                 contents += JsonUtility.ToJson(temp) + '\n';
             }
+            return contents;
+        }
+
+        private string GetNewFileName()
+        {
+            string showFile = filename.Remove(filename.Length - 4);
+            var dateTime = DateTime.Now;
+            var newFileName = showFile + "_" + dateTime.ToString("ddMMyy") + "_" + dateTime.ToString("HHmm");
+            return newFileName;
+        }
+
+        async void SaveAsNewJson()
+        {
+            
+            UnityEngine.Debug.Log("start save");
+            string contents = GetContents();
+            string newFileName = GetNewFileName();
+
+            
+
+            
+
+            
 
 #if !UNITY_EDITOR && UNITY_WSA_10_0
             StorageFolder myDocuments = KnownFolders.DocumentsLibrary;
             StorageFolder savedChecklists = await myDocuments.CreateFolderAsync("saved_checklists", CreationCollisionOption.OpenIfExists);
-            StorageFile newFile = await savedChecklists.CreateFileAsync(showFile,CreationCollisionOption.GenerateUniqueName);
+            StorageFile newFile = await savedChecklists.CreateFileAsync(newFileName,CreationCollisionOption.GenerateUniqueName);
             await FileIO.WriteTextAsync(newFile, contents);
+            SendNewJson(newFile.Name);
 
 #endif
             UnityEngine.Debug.Log("saved as new json");
+
+        }
+
+        async void SendNewJson(string newFileName)
+        {
+            var accessToken = Graph.ACCESS_TOKEN;
+            UnityEngine.Debug.Log("start send");
+
+            //string newFileName = GetNewFileName();
+            string contents = GetContents();
+
+            var httpContent = new StringContent(contents, Encoding.UTF8, "text/plain");
+
+            var url = $"https://graph.microsoft.com/v1.0/users/ltaholo@ltaholotestoutlook.onmicrosoft.com/drive/root:/saved_checklists/{newFileName}.txt:/content";
+            //UnityEngine.Debug.Log(url);
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(url);
+            client.DefaultRequestHeaders.Accept.Clear();
+            //client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
+
+            var response = await client.PutAsync(url, httpContent);
+            response.EnsureSuccessStatusCode();
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            //UnityEngine.Debug.Log(responseContent);
 
         }
 

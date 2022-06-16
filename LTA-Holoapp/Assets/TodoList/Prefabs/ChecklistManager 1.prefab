@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9006157869055159018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.068, y: -0.102000006, z: 0}
-  m_LocalScale: {x: 0.136, y: 0.20400001, z: 0.024}
+  m_LocalPosition: {x: 0.068, y: -0.099, z: 0}
+  m_LocalScale: {x: 0.136, y: 0.198, z: 0.024}
   m_Children: []
   m_Father: {fileID: 9006157869502636589}
   m_RootOrder: 1
@@ -1862,7 +1862,7 @@ MonoBehaviour:
   cellsPerTier: 4
   tiersPerPage: 6
   cellWidth: 0.034
-  cellHeight: 0.034
+  cellHeight: 0.033
   cellDepth: 0.024
   bounceMultiplier: 0.1
   OnClick:
@@ -1897,8 +1897,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.136, y: 0.20400001, z: 0.001}
-  m_Center: {x: 0.068, y: -0.102000006, z: 0.013}
+  m_Size: {x: 0.136, y: 0.198, z: 0.001}
+  m_Center: {x: 0.068, y: -0.099, z: 0.013}
 --- !u!114 &9006157869502636587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,8 +1915,8 @@ MonoBehaviour:
   debounceThreshold: 0.01
   localForward: {x: -0, y: -0, z: -1}
   localUp: {x: 0, y: 1, z: 0}
-  localCenter: {x: 0.068, y: -0.102000006, z: -0.012}
-  bounds: {x: 0.136, y: 0.20400001}
+  localCenter: {x: 0.068, y: -0.099, z: -0.012}
+  bounds: {x: 0.136, y: 0.198}
   touchableCollider: {fileID: 9006157869502636588}
 --- !u!1 &9006157869660194879
 GameObject:

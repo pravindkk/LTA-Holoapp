@@ -96,7 +96,8 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);
-
+            
+            
             var responseMessage = await client.GetAsync(url);
             responseMessage.EnsureSuccessStatusCode();
             //Debug.Log(responseMessage.EnsureSuccessStatusCode());
