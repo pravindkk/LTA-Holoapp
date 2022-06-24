@@ -1,6 +1,6 @@
 {
     "name": "LTA-Holoapp",
-    "rootNamespace": "Microsoft.MixedReality.OpenXR.BasicSample",
+    "rootNamespace": "LTA.Holoapp",
     "references": [
         "GUID:3b76ab8242cc35d479edf0a949d56d59",
         "GUID:fc95ab6d61af84f48a8379f9ef05afd1",
@@ -14,7 +14,8 @@
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
         "GUID:0894cfc12853192419b32e8cb5b453aa",
         "GUID:3d9f59ae91c131e408fec0e5f661c340",
-        "GUID:a86c479391ab3184d971a7205a037fd9"
+        "GUID:a86c479391ab3184d971a7205a037fd9",
+        "GUID:7404ed9ad29ad3844ac3a261c8d45b60"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

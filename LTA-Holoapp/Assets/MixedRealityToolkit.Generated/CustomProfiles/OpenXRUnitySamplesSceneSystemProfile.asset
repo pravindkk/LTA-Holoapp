@@ -67,6 +67,12 @@ MonoBehaviour:
     BuildIndex: -1
     Tag: Untagged
     Asset: {fileID: 102900000, guid: d355505f2c946d643931d88832a0a445, type: 3}
+  - Name: ObjectRecognition
+    Path: Assets/ObjectRecognition/ObjectRecognition.unity
+    Included: 0
+    BuildIndex: -1
+    Tag: Untagged
+    Asset: {fileID: 102900000, guid: ddd93d454385ea74d8e8353dfd10429a, type: 3}
   permittedLightingSceneComponentTypes:
   - reference: UnityEngine.Transform, UnityEngine.CoreModule
   - reference: UnityEngine.GameObject, UnityEngine.CoreModule

@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/QRScanner/MyQRCode.unity
     guid: a56d3870441a9a248bb17457a5c12c28
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: 4c855881d5f542f4496c9908a0442fc1
+  - enabled: 1
+    path: Assets/ObjectRecognition/ObjectRecognition.unity
+    guid: ddd93d454385ea74d8e8353dfd10429a
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: d9dfbb01a8dc8494ca3ed3f08f987ed7, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c0dc29e9d338cf4e867f224b63433c0, type: 2}

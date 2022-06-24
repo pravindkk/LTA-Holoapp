@@ -86,3 +86,10 @@ MonoBehaviour:
       id: 1
       description: Select
       axisConstraint: 2
+  - localizationKey: 
+    keyword: Object Recognition
+    keyCode: 49
+    action:
+      id: 1
+      description: Select
+      axisConstraint: 2
